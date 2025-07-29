@@ -1620,6 +1620,13 @@ section{
 	overflow: hidden;
 }
 
+.zr-theme-single-service-card {
+  min-height: 380px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .zr-theme-single-service-card img{
 	width: 90px;
 }
@@ -3489,4 +3496,9 @@ textarea:focus {
 	.container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
 	    max-width: 1320px;
 	}
+}
+
+.zr-theme-single-service-card img {
+  display: block;
+  margin: 0 auto;
 }
