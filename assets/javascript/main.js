@@ -12,11 +12,12 @@
 	});
 	var nav = $('nav');
 	var navHeight = nav.outerHeight();
-	$('.navbar-toggler').on('click', function () {
-		if (!$('#mainNav').hasClass('navbar-reduce')) {
-			$('#mainNav').addClass('navbar-reduce');
-		}
-	});
+	// Hamburger menüye tıklandığında header'ın değişmesini engellemek için bu kodu devre dışı bıraktık
+	// $('.navbar-toggler').on('click', function () {
+	// 	if (!$('#mainNav').hasClass('navbar-reduce')) {
+	// 		$('#mainNav').addClass('navbar-reduce');
+	// 	}
+	// });
 
 	// Navbar Menu Reduce 
 	$(window).trigger('scroll');
@@ -169,6 +170,49 @@
 	// Preloader Area
 	jQuery(window).on('load', function () {
 	  jQuery('.preloader').delay(500).fadeOut('slow');
+	});
+	
+	// Mobile Menu Functionality
+	$(document).ready(function() {
+		const mobileMenuBtn = $('#mobileMenuBtn');
+		const mobileMenuOverlay = $('#mobileMenuOverlay');
+		const mobileMenuClose = $('#mobileMenuClose');
+		const mobileNavLinks = $('.mobile-nav-link');
+		
+		// Open mobile menu
+		mobileMenuBtn.on('click', function() {
+			$(this).addClass('active');
+			mobileMenuOverlay.addClass('active');
+			$('body').addClass('menu-open');
+		});
+		
+		// Close mobile menu
+		function closeMobileMenu() {
+			mobileMenuBtn.removeClass('active');
+			mobileMenuOverlay.removeClass('active');
+			$('body').removeClass('menu-open');
+		}
+		
+		mobileMenuClose.on('click', closeMobileMenu);
+		
+		// Close menu when clicking on overlay
+		mobileMenuOverlay.on('click', function(e) {
+			if (e.target === this) {
+				closeMobileMenu();
+			}
+		});
+		
+		// Close menu when clicking on nav links
+		mobileNavLinks.on('click', function() {
+			closeMobileMenu();
+		});
+		
+		// Close menu on escape key
+		$(document).on('keydown', function(e) {
+			if (e.key === 'Escape' && mobileMenuOverlay.hasClass('active')) {
+				closeMobileMenu();
+			}
+		});
 	});
 	
 })(jQuery);
