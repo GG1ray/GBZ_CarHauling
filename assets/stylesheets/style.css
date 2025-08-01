@@ -2997,7 +2997,10 @@ textarea:focus {
 	margin-bottom: 30px;
   }
   .footer-logo img {
-	  max-width: 200px;
+	  width: 250px;
+	  height: auto;
+	  filter: brightness(0) invert(1);
+	  transition: all 0.3s ease;
   }
   .footer-text p {
 	margin-bottom: 14px;
