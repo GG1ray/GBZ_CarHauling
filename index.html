@@ -32,6 +32,41 @@
   font-size: 2.5rem !important;
   line-height: 1.1 !important;
 }
+
+.language-btn {
+    background: #2e7d32;
+    border: 2px solid #2e7d32;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-left: 15px;
+}
+
+.language-btn:hover {
+    background: #1b5e20;
+    border-color: #1b5e20;
+    color: #fff;
+}
+
+.mobile-language-btn {
+    background: #2e7d32;
+    border: 2px solid #2e7d32;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: 600;
+    width: 100%;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+.mobile-language-btn:hover {
+    background: #1b5e20;
+    border-color: #1b5e20;
+    color: #fff;
+}
 </style>
 </head>
 
@@ -63,10 +98,27 @@
             </button>
                 <div class="navbar-collapse collapse justify-content-end" id="navbarDefault">
                     <ul class="navbar-nav">
-                        <li class="nav-item"><a class="nav-link js-scroll active" href="#">Home</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll" href="#services">Services</a></li>
-                        <li class="nav-item book-now"><a class="nav-link js-scroll" href="#reservation">Book Now</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll" href="#contact">Contact</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll active" href="#" data-lang="en">Home</a>
+                            <a class="nav-link js-scroll active" href="#" data-lang="fr" style="display:none;">Accueil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll" href="#services" data-lang="en">Services</a>
+                            <a class="nav-link js-scroll" href="#services" data-lang="fr" style="display:none;">Services</a>
+                        </li>
+                        <li class="nav-item book-now">
+                            <a class="nav-link js-scroll" href="#reservation" data-lang="en">Book Now</a>
+                            <a class="nav-link js-scroll" href="#reservation" data-lang="fr" style="display:none;">Réserver</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll" href="#contact" data-lang="en">Contact</a>
+                            <a class="nav-link js-scroll" href="#contact" data-lang="fr" style="display:none;">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <button class="btn btn-outline-light language-btn" id="languageToggle">
+                                <span class="lang-text">FR</span>
+                            </button>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -85,10 +137,23 @@
                 </button>
             </div>
             <ul class="mobile-menu-nav">
-                <li><a href="#" class="mobile-nav-link active">Home</a></li>
-                <li><a href="#services" class="mobile-nav-link">Services</a></li>
-                <li><a href="#reservation" class="mobile-nav-link">Book Now</a></li>
-                <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+                <li>
+                    <a href="#" class="mobile-nav-link active" data-lang="en">Home</a>
+                    <a href="#" class="mobile-nav-link active" data-lang="fr" style="display:none;">Accueil</a>
+                </li>
+                <li>
+                    <a href="#services" class="mobile-nav-link" data-lang="en">Services</a>
+                    <a href="#services" class="mobile-nav-link" data-lang="fr" style="display:none;">Services</a>
+                </li>
+                <li>
+                    <a href="#reservation" class="mobile-nav-link" data-lang="en">Book Now</a>
+                    <a href="#reservation" class="mobile-nav-link" data-lang="fr" style="display:none;">Réserver</a>
+                </li>
+                <li>
+                    <a href="#contact" class="mobile-nav-link" data-lang="en">Contact</a>
+                    <a href="#contact" class="mobile-nav-link" data-lang="fr" style="display:none;">Contact</a>
+                </li>
+                <li><button class="mobile-language-btn" id="mobileLanguageToggle">FR</button></li>
             </ul>
         </div>
     </div>
@@ -98,21 +163,29 @@
         <div class="swiper-container parallax-slider">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <div class="bg-img valign" data-background="assets/images/slider-1.jpg">
+                    <div class="bg-img valign" data-background="assets/images/slider-1.png">
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-8 col-md-10 d-flex align-items-center">
                                     <div class="caption text-left">
-                                        <h1 class="hero-title-small">Fast & Reliable Car Shipping Across Eastern Canada</h1>
-                                        <h2>Door-to-Door Car & Motorcycle Shipping</h2>
-                                        <h3>Personal Service, Maximum Care</h3>
+                                        <h1 class="hero-title-small" data-lang="en">Fast & Reliable Car Shipping Across Eastern Canada</h1>
+                                        <h1 class="hero-title-small" data-lang="fr" style="display:none;">Transport de voitures rapide et fiable à travers l'Est du Canada</h1>
+                                        <h2 data-lang="en">Door-to-Door Car & Motorcycle Shipping</h2>
+                                        <h2 data-lang="fr" style="display:none;">Transport de voitures et motos porte-à-porte</h2>
+                                        <h3 data-lang="en">Personal Service, Maximum Care</h3>
+                                        <h3 data-lang="fr" style="display:none;">Service personnalisé, soins maximaux</h3>
                                         <!-- Instant Quote Box Start -->
                                         <div style="background:rgba(255,255,255,0.97);border-radius:10px;padding:24px 20px;max-width:350px;box-shadow:0 2px 16px rgba(0,0,0,0.08);">
-                                            <div style="font-size:18px;font-weight:500;margin-bottom:8px;">Get <span style="color:#2196f3;font-weight:700;">an instant quote</span></div>
-                                            <div style="font-size:15px;margin-bottom:16px;">or <b>call now</b> <span style="color:#2196f3;">(Your Number)</span></div>
-                                            <input type="text" placeholder="Transport car FROM (ZIP or City)" style="width:100%;margin-bottom:8px;padding:8px 10px;border:1px solid #ccc;border-radius:4px;">
-                                            <input type="text" placeholder="Transport car TO (ZIP or City)" style="width:100%;margin-bottom:8px;padding:8px 10px;border:1px solid #ccc;border-radius:4px;">
-                                            <button style="width:100%;background:#2e7d32;color:#fff;padding:10px 0;border:none;border-radius:4px;font-size:16px;font-weight:600;">Vehicle details &rarr;</button>
+                                            <div style="font-size:18px;font-weight:500;margin-bottom:8px;" data-lang="en">Get <span style="color:#2196f3;font-weight:700;">an instant quote</span></div>
+                                            <div style="font-size:18px;font-weight:500;margin-bottom:8px;" data-lang="fr" style="display:none;">Obtenez <span style="color:#2196f3;font-weight:700;">un devis instantané</span></div>
+                                            <div style="font-size:15px;margin-bottom:16px;" data-lang="en">or <b>call now</b> <span style="color:#2196f3;">+1 (647) 808-0650</span></div>
+                                            <div style="font-size:15px;margin-bottom:16px;" data-lang="fr" style="display:none;">ou <b>appelez maintenant</b> <span style="color:#2196f3;">+1 (647) 808-0650</span></div>
+                                            <input type="text" placeholder="Transport car FROM (ZIP or City)" data-lang="en" style="width:100%;margin-bottom:8px;padding:8px 10px;border:1px solid #ccc;border-radius:4px;">
+                                            <input type="text" placeholder="Transport voiture DEPUIS (Code postal ou Ville)" data-lang="fr" style="width:100%;margin-bottom:8px;padding:8px 10px;border:1px solid #ccc;border-radius:4px;display:none;">
+                                            <input type="text" placeholder="Transport car TO (ZIP or City)" data-lang="en" style="width:100%;margin-bottom:8px;padding:8px 10px;border:1px solid #ccc;border-radius:4px;">
+                                            <input type="text" placeholder="Transport voiture VERS (Code postal ou Ville)" data-lang="fr" style="width:100%;margin-bottom:8px;padding:8px 10px;border:1px solid #ccc;border-radius:4px;display:none;">
+                                            <button style="width:100%;background:#2e7d32;color:#fff;padding:10px 0;border:none;border-radius:4px;font-size:16px;font-weight:600;" data-lang="en">Vehicle details &rarr;</button>
+                                            <button style="width:100%;background:#2e7d32;color:#fff;padding:10px 0;border:none;border-radius:4px;font-size:16px;font-weight:600;display:none;" data-lang="fr">Détails du véhicule &rarr;</button>
                                         </div>
                                         <!-- Instant Quote Box End -->
                                     </div>
@@ -133,7 +206,8 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12">
                     <div class="section-title">
-                        <h2>Our Services</h2>
+                        <h2 data-lang="en">Our Services</h2>
+                        <h2 data-lang="fr" style="display:none;">Nos Services</h2>
                     </div>
                 </div>
             </div>
@@ -142,8 +216,10 @@
                 <div class="col-lg-4 col-md-6 col-sm-12 wow zr-theme-single-service fadeInLeft text-center" data-wow-delay="0.2s">
                     <div class="zr-theme-single-service-card">
                         <img src="assets/images/services/service-1.png" alt="car shipping">
-                        <h5><a href="#">Door-to-Door Car Shipping</a></h5>
-                        <p>We pick up and deliver your car right at your doorstep, ensuring a hassle-free experience across Eastern Canada.</p>
+                        <h5><a href="#" data-lang="en">Door-to-Door Car Shipping</a></h5>
+                        <h5><a href="#" data-lang="fr" style="display:none;">Transport de voitures porte-à-porte</a></h5>
+                        <p data-lang="en">We pick up and deliver your car right at your doorstep, ensuring a hassle-free experience across Eastern Canada.</p>
+                        <p data-lang="fr" style="display:none;">Nous récupérons et livrons votre voiture directement à votre porte, garantissant une expérience sans tracas à travers l'Est du Canada.</p>
                         <a href="#contact" class="btn fill-text"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
                     </div>
                 </div>
@@ -151,8 +227,10 @@
                 <div class="col-lg-4 col-md-6 col-sm-12 wow zr-theme-single-service fadeInLeft text-center" data-wow-delay="0.2s">
                     <div class="zr-theme-single-service-card">
                         <img src="assets/images/services/service-2.png" alt="motorcycle shipping">
-                        <h5><a href="#">Motorcycle Shipping</a></h5>
-                        <p>Safe and secure transport for your motorcycle, with careful handling every step of the way.</p>
+                        <h5><a href="#" data-lang="en">Motorcycle Shipping</a></h5>
+                        <h5><a href="#" data-lang="fr" style="display:none;">Transport de motos</a></h5>
+                        <p data-lang="en">Safe and secure transport for your motorcycle, with careful handling every step of the way.</p>
+                        <p data-lang="fr" style="display:none;">Transport sûr et sécurisé pour votre moto, avec une manipulation soigneuse à chaque étape.</p>
                         <a href="#contact" class="btn fill-text"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
                     </div>
                 </div>
@@ -160,8 +238,10 @@
                 <div class="col-lg-4 col-md-6 col-sm-12 wow zr-theme-single-service fadeInLeft text-center" data-wow-delay="0.2s">
                     <div class="zr-theme-single-service-card">
                         <img src="assets/images/services/service-3.png" alt="personal service">
-                        <h5><a href="#">Personalized Service</a></h5>
-                        <p>As a small business with a single vehicle, we offer direct communication and tailored solutions for every customer.</p>
+                        <h5><a href="#" data-lang="en">Personalized Service</a></h5>
+                        <h5><a href="#" data-lang="fr" style="display:none;">Service personnalisé</a></h5>
+                        <p data-lang="en">As a small business with a single vehicle, we offer direct communication and tailored solutions for every customer.</p>
+                        <p data-lang="fr" style="display:none;">En tant que petite entreprise avec un seul véhicule, nous offrons une communication directe et des solutions adaptées pour chaque client.</p>
                         <a href="#contact" class="btn fill-text"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
                     </div>
                 </div>
@@ -175,27 +255,34 @@
         <div class="container">
             <div class="row">
                 <div class="offset-lg-6 col-lg-6 col-md-12 section-block-bg">
-                    <h4>Why Choose GBZ Transportation?</h4>
-                    <p>GBZ Transportation is a small, dedicated auto transport company based in Eastern Canada. With a single, well-maintained vehicle, we provide personalized and secure car and motorcycle shipping services. Our focus is on reliability, transparency, and customer satisfaction.</p>
+                    <h4 data-lang="en">Why Choose GBZ Transportation?</h4>
+                    <h4 data-lang="fr" style="display:none;">Pourquoi choisir GBZ Transportation?</h4>
+                    <p data-lang="en">GBZ Transportation is a small, dedicated auto transport company based in Eastern Canada. With a single, well-maintained vehicle, we provide personalized and secure car and motorcycle shipping services. Our focus is on reliability, transparency, and customer satisfaction.</p>
+                    <p data-lang="fr" style="display:none;">GBZ Transportation est une petite entreprise de transport automobile dédiée basée dans l'Est du Canada. Avec un seul véhicule bien entretenu, nous fournissons des services de transport de voitures et de motos personnalisés et sécurisés. Notre objectif est la fiabilité, la transparence et la satisfaction client.</p>
                     <hr>
                     <div class="row features-wrap">
                         <div class="col-lg-6 col-md-12">
                             <div class="feature-list">
-                                <p><i class="fa fa-check"></i> Only one vehicle – your car gets our full attention!</p>
+                                <p data-lang="en"><i class="fa fa-check"></i> Only one vehicle – your car gets our full attention!</p>
+                                <p data-lang="fr" style="display:none;"><i class="fa fa-check"></i> Un seul véhicule – votre voiture reçoit toute notre attention !</p>
                             </div>
                             <div class="feature-list">
-                                <p><i class="fa fa-check"></i> Direct contact with the owner/driver</p>
+                                <p data-lang="en"><i class="fa fa-check"></i> Direct contact with the owner/driver</p>
+                                <p data-lang="fr" style="display:none;"><i class="fa fa-check"></i> Contact direct avec le propriétaire/chauffeur</p>
                             </div>
                             <div class="feature-list">
-                                <p><i class="fa fa-check"></i> Fully insured and transparent pricing</p>
+                                <p data-lang="en"><i class="fa fa-check"></i> Fully insured and transparent pricing</p>
+                                <p data-lang="fr" style="display:none;"><i class="fa fa-check"></i> Entièrement assuré et tarification transparente</p>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-12">
                             <div class="feature-list">
-                                <p><i class="fa fa-check"></i> Serving all of Eastern Canada</p>
+                                <p data-lang="en"><i class="fa fa-check"></i> Serving all of Eastern Canada</p>
+                                <p data-lang="fr" style="display:none;"><i class="fa fa-check"></i> Service dans tout l'Est du Canada</p>
                             </div>
                             <div class="feature-list">
-                                <p><i class="fa fa-check"></i> Personalized, customer-focused service</p>
+                                <p data-lang="en"><i class="fa fa-check"></i> Personalized, customer-focused service</p>
+                                <p data-lang="fr" style="display:none;"><i class="fa fa-check"></i> Service personnalisé, axé sur le client</p>
                             </div>
                         </div>
                     </div>
@@ -217,8 +304,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 text-center">
-                    <h2>24 Hours a day</h2>
-                    <div class="mt-20"><a class="button reservation-btn" href="#slider-home">Book Now</a></div>
+                    <h2 data-lang="en">24 Hours a day</h2>
+                    <h2 data-lang="fr" style="display:none;">24 heures par jour</h2>
+                    <div class="mt-20"><a class="button reservation-btn" href="#slider-home" data-lang="en">Book Now</a></div>
+                    <div class="mt-20"><a class="button reservation-btn" href="#slider-home" data-lang="fr" style="display:none;">Réserver maintenant</a></div>
                 </div>
             </div>
         </div>
@@ -231,7 +320,8 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12">
                     <div class="section-title">
-                        <h2>Contact GBZ Transportation</h2>
+                        <h2 data-lang="en">Contact GBZ Transportation</h2>
+                        <h2 data-lang="fr" style="display:none;">Contactez GBZ Transportation</h2>
                     </div>
                 </div>
             </div>
@@ -244,7 +334,7 @@
                                     <i class="fa fa-map-marker"></i>
                                     <div class="cta-text">
                                         <h4>Find us</h4>
-                                        <span>Eastern Canada (Contact for details)</span>
+                                        <span>430 Linden Dr. Cambridge N3H 0C7 ON</span>
                                     </div>
                                 </div>
                             </div>
@@ -253,7 +343,7 @@
                                     <i class="fa fa-phone"></i>
                                     <div class="cta-text">
                                         <h4>Call us</h4>
-                                        <span>+1 (Your Number)</span>
+                                        <span>+1 (647) 808-0650</span>
                                     </div>
                                 </div>
                             </div>
@@ -262,7 +352,7 @@
                                     <i class="fa fa-envelope-open"></i>
                                     <div class="cta-text">
                                         <h4>Email us</h4>
-                                        <span>info@gbztransportation.com</span>
+                                        <span>15904765canadainc@gmail.com</span>
                                     </div>
                                 </div>
                             </div>
@@ -276,29 +366,34 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="name" name="name" placeholder="Name*" required="required" data-error="Your name is required.">
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="Name*" data-lang="en" required="required" data-error="Your name is required.">
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="Nom*" data-lang="fr" style="display:none;" required="required" data-error="Votre nom est requis.">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="email" class="form-control" id="email" name="email" placeholder="Email*" required="required" data-error="Your valid email is required.">
+                                        <input type="email" class="form-control" id="email" name="email" placeholder="Email*" data-lang="en" required="required" data-error="Your valid email is required.">
+                                        <input type="email" class="form-control" id="email" name="email" placeholder="Email*" data-lang="fr" style="display:none;" required="required" data-error="Votre email valide est requis.">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" name="subject" placeholder="Subject" required="required">
+                                        <input type="text" class="form-control" name="subject" placeholder="Subject" data-lang="en" required="required">
+                                        <input type="text" class="form-control" name="subject" placeholder="Sujet" data-lang="fr" style="display:none;" required="required">
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <textarea class="form-control" id="message" name="message" rows="10" placeholder="Write Your Message*" required="required" data-error="Please leave us a message."></textarea>
+                                        <textarea class="form-control" id="message" name="message" rows="10" placeholder="Write Your Message*" data-lang="en" required="required" data-error="Please leave us a message."></textarea>
+                                        <textarea class="form-control" id="message" name="message" rows="10" placeholder="Écrivez votre message*" data-lang="fr" style="display:none;" required="required" data-error="Veuillez nous laisser un message."></textarea>
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <button type="submit" class="button" data-text="Send Message">Send Message</button>
+                                    <button type="submit" class="button" data-text="Send Message" data-lang="en">Send Message</button>
+                                    <button type="submit" class="button" data-text="Envoyer le message" data-lang="fr" style="display:none;">Envoyer le message</button>
                                 </div>
                                 <div class="messages">
                                     <div class="alert alert alert-success alert-dismissable alert-dismissable hidden" id="msgSubmit"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Thank You! your message has been sent. </div>
@@ -329,21 +424,8 @@
                             <div class="footer-text">
                                 <p>Lorem ipsum dolor sit amet, consec tetur adipisicing elit, sed do eiusmod tempor incididuntut consec tetur adipisicing elit,Lorem ipsum dolor sit amet.</p>
                             </div>
-                            <div class="contact-box">
-                                <p><a href="#"><i class="fa fa-map-marker"></i> 123 Street, Newyork, 43100, United States</a></p>
-                                <p><i class="fa fa-phone"></i> +1 1234 118</p>
-                                <p><a class="contact-info-link" href="mailto:info@example.com"><i class="fa fa-envelope-open"></i> info@example.com</a></p>
-                            </div>
-                            <div class="contact-box">
-                                <p class="opening-hours">Fri <span>24 Hours</span></p>
-                                <p class="opening-hours">Sun - Thu <span>6:00am - 12:00am</span></p>
-                                <p class="opening-hours">Saturday <span>Closed</span></p>
-                            </div>
-                            <div class="footer-social-icon">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-google"></i></a>
-                            </div>
+
+
                         </div>
                     </div>
 
@@ -358,17 +440,7 @@
                             <p>GBZ Car Hauling © 2025</p>
                         </div>
                     </div>
-                    <div class="col-xl-6 col-lg-6 d-none d-lg-block text-right">
-                        <div class="footer-menu">
-                            <ul>
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">Terms</a></li>
-                                <li><a href="#">Privacy</a></li>
-                                <li><a href="#">Policy</a></li>
-                                <li><a href="#contact">Contact</a></li>
-                            </ul>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -382,6 +454,54 @@
 	<!-- Back to Top End -->
     <script type="text/javascript">
         function gmNoop() { console.log('GMap Callback') }
+        
+        // Language switching functionality
+        let currentLang = 'en';
+        
+        function switchLanguage(lang) {
+            currentLang = lang;
+            
+            // Hide all elements with data-lang attribute
+            document.querySelectorAll('[data-lang]').forEach(element => {
+                element.style.display = 'none';
+            });
+            
+            // Show elements for current language
+            document.querySelectorAll(`[data-lang="${lang}"]`).forEach(element => {
+                element.style.display = '';
+            });
+            
+            // Update language toggle buttons
+            document.querySelectorAll('.lang-text').forEach(element => {
+                element.textContent = lang === 'en' ? 'FR' : 'EN';
+            });
+            
+            // Update mobile language button
+            const mobileBtn = document.getElementById('mobileLanguageToggle');
+            if (mobileBtn) {
+                mobileBtn.textContent = lang === 'en' ? 'FR' : 'EN';
+            }
+        }
+        
+        // Event listeners for language toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const languageToggle = document.getElementById('languageToggle');
+            const mobileLanguageToggle = document.getElementById('mobileLanguageToggle');
+            
+            if (languageToggle) {
+                languageToggle.addEventListener('click', function() {
+                    const newLang = currentLang === 'en' ? 'fr' : 'en';
+                    switchLanguage(newLang);
+                });
+            }
+            
+            if (mobileLanguageToggle) {
+                mobileLanguageToggle.addEventListener('click', function() {
+                    const newLang = currentLang === 'en' ? 'fr' : 'en';
+                    switchLanguage(newLang);
+                });
+            }
+        });
     </script>
 	
 	<!-- Site All Jquery Js -->

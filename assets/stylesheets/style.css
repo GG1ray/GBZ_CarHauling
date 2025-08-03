@@ -1706,7 +1706,7 @@ section{
  * Our Services Section Style
  *************************************/
 .features {
-	background: url(../images/feature-bg.jpg);
+	background: url(../images/feature-bg.png);
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -1973,7 +1973,7 @@ section{
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
-	background-image: url(../images/section-bg.jpg);
+	background-image: url(../images/section-bg.png);
 	z-index: 1;
 	text-align: center;
 	position: relative;
